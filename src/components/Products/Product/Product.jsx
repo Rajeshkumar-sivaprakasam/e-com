@@ -6,22 +6,21 @@ import { IconButton } from '@material-ui/core';
 import useStyles from './Styles'
 
 export const Product = ({ product }) => {
+  console.log(product,'pro');
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image={product.image} title={product.name} />
+      <CardMedia className={classes.media} image={product.image.url} title={product.name} />
       <CardContent>
         <div className={classes.cardContent}>
           <Typography variant='h5' gutterBottom>
             {product.name}
           </Typography>
           <Typography variant='h5'>
-            {product.price}
+            {product.price.formatted_with_symbol}
           </Typography>
         </div>
-        <Typography variant='h2' color='textSecondary'>
-          {product.discription}
-        </Typography>
+        <Typography dangerouslySetInnerHTML = {{ __html: product.description }} variant='caption' color='textSecondary'></Typography>
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions} >
         <IconButton arial-label='Add to Cart'>
