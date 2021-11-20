@@ -3,21 +3,21 @@ import {Grid} from '@material-ui/core';
 import { Product } from './Product/Product';
 import mac from '../../pictures/product/macbook.jpg'
 import shoe from '../../pictures/product/shoe.jpg'
+import useStyles from './Styles'
 
-const products = [
-  {id:1, name:'shpoes', discription:'Running shoes.',price:'5$',image:{mac}},
-  {id:2, name:'MacBook', discription:'Apple macbook.',price:'10$',image:{shoe}},
-]
-
-export const Products = () => {
+export const Products = ( { products } ) => {
+  const classes = useStyles()
+  console.log(products)
   return (
-    <main>
+    <main className={classes.content}>
+      <div className={classes.toolbar} />
       <Grid container justifyContent='center' spacing={2}>
-        {products.map((product)=>(
+        {products.map((product)=>{
+          return (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
             <Product product={product}/>
           </Grid>
-        ))}
+        )})}
       </Grid>
     </main>
   )
