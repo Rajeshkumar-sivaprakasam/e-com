@@ -1,13 +1,11 @@
 import React from 'react'
 import {Grid} from '@material-ui/core';
 import { Product } from './Product/Product';
-import mac from '../../pictures/product/macbook.jpg'
-import shoe from '../../pictures/product/shoe.jpg'
-import useStyles from './Styles'
+import useStyles from './Styles';
 
 export const Products = ( { products } ) => {
   const classes = useStyles()
-  console.log(products)
+  
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
