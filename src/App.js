@@ -24,11 +24,12 @@ const App = () => {
     fetchProducts();
     fetchCart();
   }, [])
+  console.log(cart,'cart');
 
   return (
     <div>
-      <Products products={ products }/>
       <Navbar />
+      <Products products={ products } onAddToCart={handleAddToCart} />
     </div>
   )
 }
